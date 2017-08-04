@@ -1,0 +1,4 @@
+use cot-dev
+db.moves.createIndex({ "init.name" : 1 }, { unique: true})
+db.moves.createIndex({ "nextMoves.move" : 1 })
+
