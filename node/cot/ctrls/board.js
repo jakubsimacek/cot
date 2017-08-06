@@ -1,4 +1,5 @@
 const Move = require('../models/move');
+const board = require('../models/board');
 
 //router.get('/start/moves', 
 module.exports.getOpenings = function (req, res) {
@@ -14,13 +15,13 @@ module.exports.getOpenings = function (req, res) {
             return { name: w.init.name, 
                      type: w.init.type,
                      whiteStarts: w.whiteStarts
-                     };
+            };
         });
         console.log('startMoves: ', startMoves);
         res.render('startMoves', {user: req.user, startMoves: startMoves});
     });
   
-    res.render('not-impl', {user: req.user});
+    //res.render('not-impl', {user: req.user});
 }
 
 //router.get('/move/:move', 
