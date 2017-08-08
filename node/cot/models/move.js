@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const testing = {
     created: {type: Date, required: true},
@@ -13,7 +14,7 @@ const init = {
 };
 
 const nextMove = {
-    move: {type: String, required: true},
+    move: {type: ObjectId, required: true},
     rating: int,
     label: String,
     symbol: String
@@ -32,6 +33,10 @@ const move = {
     tests: [ testing ]
 };
 
-const Move = new Schema(move);
+const moveSchema = new Schema(move);
 
-module.exports = mongoose.model('Move', Move);
+moveSchema.methods.addNextMove(nextMove) {
+    
+}
+
+module.exports = mongoose.model('Move', moveSchema);
